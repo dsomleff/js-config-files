@@ -1,0 +1,75 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true,
+        "node": true
+    },
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended",
+        "plugin:react-hooks/recommended",
+        "prettier"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx"],
+                "paths": ["src"]
+            }
+        }
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["react", "testing-library", "jest-dom", "react-hooks"],
+    "rules": {
+        "react/jsx-no-undef": ["off", { "allowGlobals": "true" }],
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-vars": "error",
+        "react/no-multi-comp": "error",
+        "react/prefer-stateless-function": "error",
+        "react/jsx-pascal-case": "error",
+        "react/jsx-boolean-value": "error",
+        "react/no-string-refs": "error",
+        "react/self-closing-comp": "error",
+        "react/no-array-index-key": "error",
+        "react/no-invalid-html-attribute": "error",
+        "react/jsx-no-duplicate-props": "error",
+        "testing-library/no-render-in-setup": ["error", { "allowTestingFrameworkSetupHook": "beforeEach" }],
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off",
+        "react/prop-types": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "semi": ["error", "always"],
+        "no-restricted-imports": ["error", {
+            "paths": [
+                {
+                    "name": "react",
+                    "importNames": ["default"],
+                    "message": "React default is automatically imported by webpack."
+                }
+            ]
+        }]
+    },
+    "overrides": [
+        {
+            "files": ["**/cypress/**/*.cy.js"],
+            "rules": {
+                "testing-library/await-async-utils": "off",
+                "testing-library/await-async-query": "off"
+            }
+        }
+    ]
+}
